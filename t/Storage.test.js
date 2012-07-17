@@ -1,7 +1,7 @@
 $(document).ready(function(){
     module("Storage", {
         setup : function() {
-            this.storage    = sempro.core.Storage;
+            this.storage    = Storage;
 
             this.makeData   = function(end) {
                 var data = "some";

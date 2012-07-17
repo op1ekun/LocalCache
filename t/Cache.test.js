@@ -1,8 +1,8 @@
 $(document).ready(function(){
     module("Cache", {
         setup : function() {
-            this.storage    = sempro.core.Storage;
-            this.cache      = sempro.core.Cache;
+            this.storage    = Storage;
+            this.cache      = Cache;
             
             this.makeData   = function(end) {
                 var data = "some";
