@@ -1,7 +1,9 @@
-$(document).ready(function(){
+(function($){
+    module = QUnit.module;
+    
     module("Storage", {
         setup : function() {
-            this.storage    = Storage;
+            this.storage    = window.Storage;
 
             this.makeData   = function(end) {
                 var data = "some";
@@ -144,4 +146,5 @@ $(document).ready(function(){
         
         raises(function() { this.storage.add("dataKey", data)}, function(e) { return e.name === "RangeError"; }, "size of item exceeds capacity of storage, RangeError thrown");
     });
-});
+    
+}(jQuery));

@@ -1,8 +1,10 @@
-$(document).ready(function(){
+(function($){
+    module = QUnit.module;
+    
     module("Cache", {
         setup : function() {
-            this.storage    = Storage;
-            this.cache      = Cache;
+            this.storage    = window.Storage;
+            this.cache      = window.Cache;
             
             this.makeData   = function(end) {
                 var data = "some";
@@ -121,4 +123,4 @@ $(document).ready(function(){
         equal(ttlList["stringKey"], undefined, "remove timestamp for item");
     });
     
-});
+}(jQuery));
