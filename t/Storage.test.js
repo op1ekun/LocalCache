@@ -147,7 +147,7 @@
         
         var data2 = this.makeData(16); // 1 114 099 bytes
         
-        raises(function() { this.storage.add("newItem", data2)}, function(e) { return e.name === "NotEnoughSpaceError"; }, "not enough space left in the Storage");
+        raises(function() { this.storage.add("newItem", data2)}, function(e) { return e.name === "NotEnoughSpaceError"; }, "not enough space left in the Storage, NotEnoughSpaceError thrown");
     });
     
     test("exceed Storage space limit", function() {
