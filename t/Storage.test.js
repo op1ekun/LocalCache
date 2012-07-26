@@ -111,7 +111,7 @@
         
         var jsonItem = {
             "some"  : "json",
-            "wiht"  : "random data 123"            
+            "with"  : "random data 123"            
         };
         var expectedUse     = JSON.stringify(jsonItem).length;
         // storage will have one item stored
@@ -137,6 +137,17 @@
         
         this.storage.remove("jsonKey");
         equal(this.storage.getAvailableSpace(), expectedSize, "item removed, storage has one item");
+    });
+
+    test("not enough space left in the Storage", function() {
+        expect(1);
+        
+        var data1 = this.makeData(18); // 4 456 435 bytes
+        this.storage.add("dataKey", data1);
+        
+        var data2 = this.makeData(16); // 1 114 099 bytes
+        
+        raises(function() { this.storage.add("newItem", data2)}, function(e) { return e.name === "NotEnoughSpaceError"; }, "not enough space left in the Storage, NotEnoughSpaceError thrown");
     });
     
     test("exceed Storage space limit", function() {
